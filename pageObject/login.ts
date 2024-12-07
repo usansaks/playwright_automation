@@ -1,4 +1,4 @@
-import {Page} from "@playwright/test";
+import {expect, Page} from "@playwright/test";
 import * as selectors from "../utilities/selectos.json";
 
 export default class loginA1{
@@ -15,12 +15,21 @@ export default class loginA1{
     }
 
     async gotoLoginPage(){
-        await this.page.goto(`https://www.saucedemo.com/`);
+        await this.page.goto(process.env.BASEURL!);
     }
 
-    async login(username: string, password: string){
+    async loginSect(username: string, password: string){
         await this.page.locator(this.userName).fill(username);
         await this.page.locator(this.passWord).fill(password);
         await this.page.locator(this.loginButton).click();
     }
+
+    // async getErrorMessage() {
+    //     await expect(this.page.locator(selectors.loginPage.errorMessage));
+    // }
+
+    get getErrorMessage() {
+        return this.page.locator("[data-test='error']");
+    }
+    
 }

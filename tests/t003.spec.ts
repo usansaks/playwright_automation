@@ -2,30 +2,42 @@ import {expect,test} from "@playwright/test";
 import loginA1  from "../pageObject/login";
 import * as data from "../fixture/test-data/login.json"
 
-test.describe('validating sauce login2',()=>{
-    // let baseurl = `https://www.saucedemo.com/`;
-    
-    // test.beforeEach(async({page})=>{
-    //     await page.goto(baseurl);
-    // })
+let login: loginA1;
+test.describe('validating sauce login',()=>{
     // test.afterEach(async({page})=>{
-    //     await page.goto(baseurl);
     // })
     // test.beforeAll(async({page})=>{
-    //     await page.goto(baseurl);
     // })
     // test.afterAll(async({page})=>{
-    //     await page.goto(baseurl);
     // })
-    test('validate with valid username and valid password',async({page})=>{
-        const login = new loginA1(page);
+    let login: loginA1;
+
+    test.beforeEach(async({page})=>{
+        login = new loginA1(page);
         await login.gotoLoginPage();
-        await login.login(data.correctData.username,data.errorData.password);
+    })
+
+    test('validate with valid username and valid password',async({page})=>{
+        await login.loginSect(process.env.STANDARD_USERNAME!,process.env.STANDARD_PASSWORD!);
+        await expect(page.locator(`div[class="app_logo"]`)).toBeVisible();
     });
+
     test('validate with valid username and invalid password',async({page})=>{
+        await login.loginSect(process.env.STANDARD_USERNAME!,data.errorData.password);
+        await expect(await login.getErrorMessage).toContainText("do not match");
     });
+
     test('validate with invalid username and valid password',async({page})=>{
+        await login.loginSect(data.errorData.username,process.env.STANDARD_PASSWORD!);
+        await expect(await login.getErrorMessage).toContainText("do not match");
     });
+
     test('validate with invalid username and invalid password',async({page})=>{
+        await login.loginSect(data.errorData.username,data.errorData.password);
+        await expect(await login.getErrorMessage).toContainText("do not match");
+    });
+    test('validate without username and  password',async({page})=>{
+        await login.loginSect("","");
+        await expect(await login.getErrorMessage).toContainText("required");
     });
 });
