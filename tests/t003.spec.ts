@@ -1,5 +1,7 @@
 import {expect,test} from "@playwright/test";
-import loginA1  from "../pageObject/login/login";
+import loginA1  from "../pageObject/login";
+import * as data from "../fixture/test-data/login.json"
+
 test.describe('validating sauce login2',()=>{
     // let baseurl = `https://www.saucedemo.com/`;
     
@@ -18,7 +20,7 @@ test.describe('validating sauce login2',()=>{
     test('validate with valid username and valid password',async({page})=>{
         const login = new loginA1(page);
         await login.gotoLoginPage();
-        await login.login("standard_user","secret_sauce");
+        await login.login(data.correctData.username,data.errorData.password);
     });
     test('validate with valid username and invalid password',async({page})=>{
     });

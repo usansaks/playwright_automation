@@ -1,5 +1,5 @@
 import {test,expect} from '@playwright/test'
-import {locators} from '../pageObject/login/locator'
+import {locators} from '../pageObject/locator'
 
 let baseurl = `https://www.saucedemo.com/`;
 

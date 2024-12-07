@@ -1,0 +1,8 @@
+{
+    "loginPage":{
+        "usernameInput":"input[name='user-name']",
+        "passwordInput":"input[id='password']",
+        "loginButton":"input[class='submit-button btn_action']",
+        "errorMessage":"h[data-test='error']"
+    }
+}

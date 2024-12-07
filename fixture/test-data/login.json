@@ -1,0 +1,11 @@
+{
+    "correctData":{
+        "username": "standar_user",
+        "password":"secret_sauce"
+    },
+
+    "errorData":{
+        "username": "standauser",
+        "password":"sauce"
+    }
+}
