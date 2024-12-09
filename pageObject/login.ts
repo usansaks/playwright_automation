@@ -24,12 +24,12 @@ export default class loginA1{
         await this.page.locator(this.loginButton).click();
     }
 
-    async getErrorMessage() {
-        await this.page.locator(selectors.loginPage.errorMessage);
-    }
-
-    // get getErrorMessage() {
-    //     return this.page.locator("[data-test='error']");
+    // async getErrorMessage() {
+    //     await this.page.locator(selectors.loginPage.errorMessage);
     // }
+
+    get getErrorMessage() {
+        return this.page.locator("[data-test='error']");
+    }
     
 }

@@ -34,7 +34,7 @@ test.describe('validating sauce login',()=>{
 
     test('validate with invalid username and invalid password',async({page})=>{
         await login.loginSect(data.errorData.username,data.errorData.password);
-        await login.getErrorMessage().toContainText("do no match");    
+        await expect(await login.getErrorMessage).toContainText("do not match");    
     });
     test('validate without username and  password',async({page})=>{
         await login.loginSect("","");
