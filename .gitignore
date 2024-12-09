@@ -1,0 +1,10 @@
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+.env
+package-lock.json
+playwright.config.ts
+playwright_automation/
+tests-examples/
