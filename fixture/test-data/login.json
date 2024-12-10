@@ -2,5 +2,10 @@
     "errorData":{
         "username": "standauser",
         "password":"sauce"
+    },
+    "user":{
+        "Firstname": "Robben",
+        "Lastname": "Jera",
+        "Zip": "1111"
     }
 }

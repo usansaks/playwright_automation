@@ -4,5 +4,27 @@
         "passwordInput":"input[id='password']",
         "loginButton":"input[class='submit-button btn_action']",
         "errorMessage":"h3[data-test='error']"
+    },
+    "navigatePage":{
+        "validatePage": "span[class='title']"
+    },
+    "productsPage":{
+        "productName": ".inventory_item_name",
+        "productPrice": "div[class='inventory_item_price']",
+        "addtoCart": "button[class='btn btn_primary btn_small btn_inventory']",
+        "cartIcon": "a[class='shopping_cart_link']",
+        "toggleBtn": "button[id='react-burger-menu-btn']",
+        "logOut": "a[id='logout_sidebar_link']"
+    },
+    "cartPage": {
+        "cartQuantity": "div[class='cart_quantity']",
+        "removeButton": "button[class='btn btn_secondary btn_small cart_button']",
+        "checkoutButton": "button[class='btn btn_action btn_medium checkout_button']"
+    },
+    "checkoutPage": {
+        "userFirstname": "input[placeholder='First Name']",
+        "userLastname": "input[placeholder='Last Name']",
+        "userZip": "input[placeholder='Zip/Postal Code']",
+        "continueButton": "input[name='continue']"
     }
 }
