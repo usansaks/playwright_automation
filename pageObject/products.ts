@@ -1,5 +1,6 @@
 import {expect,test,Page} from "@playwright/test";
 import * as selectors from "../utilities/selectos.json";
+import * as data from "../fixture/test-data/request.json";
 
 export default class productA1 {
     public productList: string;
@@ -14,15 +15,15 @@ export default class productA1 {
         return this.page.locator(selectors.navigatePage.validatePage);
     }
 
-    async AddtoCart(productName: string){
-        const productsList = await this.page.$$(this.productList);
-        for(const product of productsList){
-            if(productName === (await product.textContent())?.trim()){
-                await product.click();
-                break;
-            }
-        }
-    }
+    // async AddtoCart(productName: string){
+    //     const productsList = await this.page.$$(this.productList);
+    //     for(const product of productsList){
+    //         if(productName === (await product.textContent())?.trim()){
+    //             await product.click();
+    //             break;
+    //         }
+    //     }
+    // }
 
     get getSddcart(){
         return this.page.locator(selectors.productsPage.productName).textContent();
@@ -39,6 +40,10 @@ export default class productA1 {
 
     get getAddtoCart(){
         return this.page.locator(selectors.productsPage.addtoCart).click();
+    }
+
+    get getBacktoProduct(){
+        return this.page.locator(selectors.productsPage.backtoProduct).click();
     }
 
     async getCartIcon(){

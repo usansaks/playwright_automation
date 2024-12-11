@@ -1,6 +1,6 @@
 import {expect,test} from "@playwright/test";
 import loginA1  from "../pageObject/login";
-import * as data from "../fixture/test-data/login.json"
+import * as data from "../fixture/test-data/request.json"
 
 let login: loginA1;
 test.describe('validating sauce login',()=>{
